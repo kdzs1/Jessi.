@@ -1,0 +1,235 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #000;
+}
+
+body {
+    font-family: "Courier New", monospace;
+}
+
+.scene {
+    position: relative;
+
+    width: 100vw;
+    height: 100vh;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(25, 10, 40, 0.25),
+            #050505 55%,
+            #000000 100%
+        );
+}
+
+#heartCanvas {
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+}
+
+
+/* =====================================
+   NOMBRE
+===================================== */
+
+.name-container {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0.65);
+
+    opacity: 0;
+
+    text-align: center;
+
+    pointer-events: none;
+
+    transition:
+        opacity 3s ease,
+        transform 3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.name-container.show {
+    opacity: 1;
+
+    transform:
+        translate(-50%, -50%)
+        scale(1);
+}
+
+
+/* =====================================
+   JESSICA
+===================================== */
+
+.name-container h1 {
+    position: relative;
+
+    font-family:
+        "Old English Text MT",
+        "UnifrakturCook",
+        "UnifrakturMaguntia",
+        "Garamond",
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(55px, 9vw, 120px);
+
+    font-weight: normal;
+
+    font-style: normal;
+
+    letter-spacing: 7px;
+
+    color: #b98cff;
+
+    text-shadow:
+        0 0 5px rgba(170, 100, 255, 0.8),
+        0 0 15px rgba(120, 60, 220, 0.65),
+        0 0 35px rgba(80, 30, 160, 0.4);
+
+    animation:
+        gothicPulse 4s ease-in-out infinite;
+}
+
+
+/* =====================================
+   LÍNEAS DECORATIVAS
+===================================== */
+
+.name-line {
+    width: 0;
+
+    height: 1px;
+
+    margin: 10px auto;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(150, 100, 255, 0.7),
+            transparent
+        );
+
+    transition:
+        width 2s ease 1s;
+}
+
+.name-container.show .name-line {
+    width: 220px;
+}
+
+
+/* =====================================
+   LOVE YOU PEQUEÑO
+===================================== */
+
+.name-container p {
+    margin-top: 12px;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size:
+        clamp(10px, 1.2vw, 14px);
+
+    letter-spacing: 6px;
+
+    text-transform: uppercase;
+
+    color: rgba(150, 120, 200, 0.55);
+
+    opacity: 0;
+
+    transform: translateY(10px);
+
+    transition:
+        opacity 2s ease 1.5s,
+        transform 2s ease 1.5s;
+}
+
+.name-container.show p {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* =====================================
+   EFECTO DE LATIDO
+===================================== */
+
+@keyframes gothicPulse {
+
+    0% {
+        text-shadow:
+            0 0 5px rgba(170, 100, 255, 0.7),
+            0 0 15px rgba(120, 60, 220, 0.5),
+            0 0 30px rgba(80, 30, 160, 0.3);
+    }
+
+    50% {
+        text-shadow:
+            0 0 8px rgba(190, 130, 255, 0.9),
+            0 0 25px rgba(140, 70, 240, 0.7),
+            0 0 50px rgba(90, 40, 190, 0.45);
+    }
+
+    100% {
+        text-shadow:
+            0 0 5px rgba(170, 100, 255, 0.7),
+            0 0 15px rgba(120, 60, 220, 0.5),
+            0 0 30px rgba(80, 30, 160, 0.3);
+    }
+}
+
+
+/* =====================================
+   TERMINAL
+===================================== */
+
+.terminal {
+    position: absolute;
+
+    left: 25px;
+    bottom: 20px;
+
+    color: rgba(150, 150, 150, 0.22);
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+
+    user-select: none;
+}
+
+.terminal span {
+    color: rgba(135, 75, 220, 0.5);
+}
